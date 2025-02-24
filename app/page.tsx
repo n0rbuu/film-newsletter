@@ -53,15 +53,21 @@ export default function Home() {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-200 px-12 pt-12">
+    <div 
+      className="min-h-screen bg-stone-950 text-stone-200 px-12 pt-12 select-none"
+      onDragOver={(e) => e.preventDefault()}
+    >
       {/* Header */}
       <div className="flex justify-between items-center mb-12">
         <h1 className="text-3xl font-bold text-center flex-grow">Between Scenes Newsletter</h1>
         <span className="text-stone-400">Issue #1</span>
       </div>
 
-      {/* Main Canvas - removed flex gap-6 container and sidebar */}
-      <div className="relative h-[calc(100vh-12rem)]">
+      {/* Main Canvas */}
+      <div 
+        className="relative h-[calc(100vh-12rem)]"
+        onDragOver={(e) => e.preventDefault()}
+      >
         {cards.map((card) => (
           <Tooltip key={card.id} delayDuration={700}>
             <TooltipTrigger asChild>
@@ -69,7 +75,14 @@ export default function Home() {
                 drag
                 dragMomentum={false}
                 initial={{ x: card.position.x, y: card.position.y }}
-                className="absolute"
+                className="absolute touch-none"
+                dragConstraints={{
+                  left: -card.position.x,
+                  right: window.innerWidth - card.position.x - 256,
+                  top: -card.position.y,
+                  bottom: window.innerHeight - card.position.y - 100
+                }}
+                dragElastic={0}
               >
                 <Card className="w-64 p-4 bg-stone-900 cursor-move hover:bg-stone-800 transition-colors">
                   <div className="flex justify-between items-start mb-2">
