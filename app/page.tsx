@@ -39,7 +39,7 @@ export default function Home() {
         [background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjAzIi8+PC9zdmc+)]
         ${isDark ? 'shadow-black/20' : 'shadow-black/10'}
       `}>
-        <div className="relative inline-block bg-white p-3 shadow-md transform rotate-[-2deg]">
+        <div className="relative inline-block bg-white p-2 shadow-md transform rotate-[-2deg]">
           <Image
             src="/mulholland-drive.png"
             alt="Mulholland Drive"
