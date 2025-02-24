@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -51,6 +51,14 @@ const cards: Card[] = [
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
+  const [constraints, setConstraints] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    setConstraints({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  }, []);
 
   return (
     <div 
@@ -78,9 +86,9 @@ export default function Home() {
                 className="absolute touch-none"
                 dragConstraints={{
                   left: -card.position.x,
-                  right: window.innerWidth - card.position.x - 256,
+                  right: constraints.width - card.position.x - 256,
                   top: -card.position.y,
-                  bottom: window.innerHeight - card.position.y - 100
+                  bottom: constraints.height - card.position.y - 100
                 }}
                 dragElastic={0}
               >
