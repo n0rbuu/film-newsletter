@@ -5,9 +5,18 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import Image from 'next/image';
 import { Polaroid } from '@/components/polaroid';
 import { SlidingHand } from '@/components/sliding-hand';
+import { DetailSheet } from '@/components/detail-sheet';
+import { ElementContent, contentData } from '@/lib/content';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [selectedContent, setSelectedContent] = useState<ElementContent | null>(null);
+
+  const handleElementClick = (contentKey: string) => {
+    setSelectedContent(contentData[contentKey]);
+    setIsSheetOpen(true);
+  };
 
   return (
     // Page container
@@ -47,16 +56,24 @@ export default function Home() {
       `}>
 
         {/* Polaroid card: Mulholland Drive */}
-        <Polaroid
-          src="/mulholland-drive.jpg"
-          alt="Mulholland Drive"
-          width={400}
-          gridColumn={1}
-          rotateDirection="left"
-        />
+        <div 
+          className="cursor-pointer transition-transform hover:scale-105 relative z-20"
+          onClick={() => handleElementClick('mulholland-drive')}
+        >
+          <Polaroid
+            src="/mulholland-drive.jpg"
+            alt="Mulholland Drive"
+            width={400}
+            gridColumn={1}
+            rotateDirection="left"
+          />
+        </div>
 
         {/* Polaroid card: Between Scenes Website */}
-        <div className="col-start-2 col-end-4 row-start-1 flex justify-center">
+        <div 
+          className="col-start-2 col-end-4 row-start-1 flex justify-center cursor-pointer transition-transform hover:scale-105 relative z-20"
+          onClick={() => handleElementClick('between-scenes-website')}
+        >
           <Polaroid
             src="/between-scenes-website.jpg"
             alt="Between Scenes Website"
@@ -67,19 +84,27 @@ export default function Home() {
         </div>
 
         {/* Polaroid card: Metrograph Issue 1 */}
-        <Polaroid
-          src="/metrograph-issue-1.jpg"
-          alt="Metrograph Issue 1"
-          width={240}
-          gridColumn={4}
-          rotateDirection="right"
-        />
+        <div 
+          className="cursor-pointer transition-transform hover:scale-105 relative z-20"
+          onClick={() => handleElementClick('metrograph-issue-1')}
+        >
+          <Polaroid
+            src="/metrograph-issue-1.jpg"
+            alt="Metrograph Issue 1"
+            width={240}
+            gridColumn={4}
+            rotateDirection="right"
+          />
+        </div>
 
         {/* Add the sliding hand animation */}
         <SlidingHand isDark={isDark} />
 
         {/* iPhone mockup - Cinenerdle */}
-        <div className="absolute bottom-0 right-0 transform -rotate-[15deg] translate-x-[20%] translate-y-[20%] z-20">
+        <div 
+          className="absolute bottom-0 right-0 transform -rotate-[15deg] translate-x-[20%] translate-y-[20%] z-20 cursor-pointer transition-transform hover:scale-105"
+          onClick={() => handleElementClick('cinenerdle')}
+        >
           <Image
             src="/cinenerdle2.png"
             alt="Cinenerdle iPhone App"
@@ -90,6 +115,13 @@ export default function Home() {
           />
         </div>
       </div>
+
+      {/* Detail Sheet */}
+      <DetailSheet 
+        isOpen={isSheetOpen}
+        onOpenChange={setIsSheetOpen}
+        content={selectedContent}
+      />
     </div>
   );
 }

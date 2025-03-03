@@ -13,7 +13,7 @@ export function Polaroid({ src, alt, width, gridColumn, rotateDirection = 'left'
   
   return (
     <div 
-      className="row-start-1 relative transform inline-block w-fit isolation-auto z-10"
+      className="row-start-1 relative transform inline-block w-fit isolation-auto z-10 pointer-events-none"
       style={{ 
         gridColumn: `${gridColumn} / span 1`,
         transform: `rotate(${rotation})`
