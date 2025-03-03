@@ -48,7 +48,7 @@ export default function Home() {
 
         {/* Polaroid card: Mulholland Drive */}
         <Polaroid
-          src="/mulholland-drive.png"
+          src="/mulholland-drive.jpg"
           alt="Mulholland Drive"
           width={400}
           gridColumn={1}
@@ -56,25 +56,39 @@ export default function Home() {
         />
 
         {/* Polaroid card: Between Scenes Website */}
-        <Polaroid
-          src="/between-scenes-website.png"
-          alt="Between Scenes Website"
-          width={560}
-          gridColumn={2}
-          rotateDirection="left"
-        />
+        <div className="col-start-2 col-end-4 row-start-1 flex justify-center">
+          <Polaroid
+            src="/between-scenes-website.jpg"
+            alt="Between Scenes Website"
+            width={520}
+            gridColumn={1}
+            rotateDirection="left"
+          />
+        </div>
 
         {/* Polaroid card: Metrograph Issue 1 */}
         <Polaroid
           src="/metrograph-issue-1.jpg"
           alt="Metrograph Issue 1"
-          width={200}
+          width={240}
           gridColumn={4}
           rotateDirection="right"
         />
 
         {/* Add the sliding hand animation */}
         <SlidingHand isDark={isDark} />
+
+        {/* iPhone mockup - Cinenerdle */}
+        <div className="absolute bottom-0 right-0 transform -rotate-[15deg] translate-x-[20%] translate-y-[20%] z-20">
+          <Image
+            src="/cinenerdle2.png"
+            alt="Cinenerdle iPhone App"
+            width={320}
+            height={0}
+            style={{ height: 'auto' }}
+            priority
+          />
+        </div>
       </div>
     </div>
   );

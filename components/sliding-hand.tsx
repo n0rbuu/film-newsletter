@@ -91,7 +91,7 @@ export function SlidingHand({ isDark }: SlidingHandProps) {
       {/* Text that gets pushed */}
       <div 
         ref={textRef}
-        className={`absolute top-1/2 text-3xl font-semibold font-serif whitespace-nowrap ${isDark ? 'text-stone-200' : 'text-stone-800'}`}
+        className={`absolute top-1/2 text-4xl font-semibold font-serif whitespace-nowrap ${isDark ? 'text-stone-200' : 'text-stone-800'}`}
         style={{ 
           left: getTextPosition(),
           transform: animationState !== 'hidden' 
