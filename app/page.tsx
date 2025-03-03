@@ -57,11 +57,11 @@ export default function Home() {
 
         {/* Polaroid card: Mulholland Drive */}
         <div 
-          className="cursor-pointer transition-transform hover:scale-105 relative z-20"
+          className="cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 relative z-20"
           onClick={() => handleElementClick('mulholland-drive')}
         >
           <Polaroid
-            src="/mulholland-drive.jpg"
+            src="/mulholland-drive.png"
             alt="Mulholland Drive"
             width={400}
             gridColumn={1}
@@ -71,7 +71,7 @@ export default function Home() {
 
         {/* Polaroid card: Between Scenes Website */}
         <div 
-          className="col-start-2 col-end-4 row-start-1 flex justify-center cursor-pointer transition-transform hover:scale-105 relative z-20"
+          className="col-start-2 col-end-4 row-start-1 flex justify-center cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 relative z-20"
           onClick={() => handleElementClick('between-scenes-website')}
         >
           <Polaroid
@@ -85,7 +85,7 @@ export default function Home() {
 
         {/* Polaroid card: Metrograph Issue 1 */}
         <div 
-          className="cursor-pointer transition-transform hover:scale-105 relative z-20"
+          className="cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-1 relative z-20"
           onClick={() => handleElementClick('metrograph-issue-1')}
         >
           <Polaroid
@@ -102,7 +102,7 @@ export default function Home() {
 
         {/* iPhone mockup - Cinenerdle */}
         <div 
-          className="absolute bottom-0 right-0 transform -rotate-[15deg] translate-x-[20%] translate-y-[20%] z-20 cursor-pointer transition-transform hover:scale-105"
+          className="absolute bottom-0 right-0 transform -rotate-[15deg] translate-x-[20%] translate-y-[20%] z-20 cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-[12deg]"
           onClick={() => handleElementClick('cinenerdle')}
         >
           <Image
