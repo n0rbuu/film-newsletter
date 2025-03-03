@@ -7,6 +7,13 @@ import { Polaroid } from '@/components/polaroid';
 import { SlidingHand } from '@/components/sliding-hand';
 import { DetailSheet } from '@/components/detail-sheet';
 import { ElementContent, contentData } from '@/lib/content';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -20,7 +27,7 @@ export default function Home() {
 
   return (
     // Page container
-    <div className={`min-h-screen p-4 sm:p-12 ${isDark ? 'bg-stone-950' : 'bg-stone-100'}`}>
+    <div className={`min-h-screen p-4 sm:p-12 ${isDark ? 'bg-stone-950' : 'bg-stone-50'}`}>
       {/* Header with Theme Toggle */}
       <div className="mb-8 flex justify-between items-center">
         <div>
@@ -35,7 +42,7 @@ export default function Home() {
       <div className={`
         w-full 
         h-[calc(100vh-12rem)] 
-        ${isDark ? 'bg-amber-800/90' : 'bg-amber-100/90'} 
+        ${isDark ? 'bg-stone-800/90' : 'bg-stone-50/90'} 
         rounded-lg 
         shadow-md 
         p-8
@@ -113,6 +120,29 @@ export default function Home() {
             style={{ height: 'auto' }}
             priority
           />
+        </div>
+
+        {/* What is this button */}
+        <div className="absolute bottom-4 left-4 z-30">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button 
+                variant="outline"
+                className={`gap-2 ${isDark ? 'bg-stone-700 text-stone-50 hover:bg-stone-800 border-stone-600' : 'bg-stone-100 text-stone-900 hover:bg-stone-900 border-stone-200'}`}
+              >
+                <HelpCircle className="h-4 w-4" />
+                What am I looking at?
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80 p-4">
+              <div className="space-y-2">
+                <h3 className="font-medium">Between Scenes Newsletter</h3>
+                <p className="text-sm text-muted-foreground">
+                  This is a monthly newsletter by me, <a href="https://letterboxd.com/n0rbuu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">n0rbuu</a>. I wanted to try something different. Click on the items on the board to discover more!
+                </p>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
