@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
 
+//Website metadata
 export const metadata: Metadata = {
   title: "Between Scenes Newsletter",
   description: "A newsletter about films and cinema",
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
+//Main Layout
 export default function RootLayout({
   children,
 }: Readonly<{

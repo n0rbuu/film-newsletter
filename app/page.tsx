@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import Image from 'next/image';
+import { Polaroid } from '@/components/polaroid';
+import { SlidingHand } from '@/components/sliding-hand';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -30,6 +32,10 @@ export default function Home() {
         p-8
         relative
         overflow-hidden
+        grid
+        grid-cols-4
+        grid-rows-3
+        gap-4
         before:absolute
         before:inset-0
         before:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.15)_100%)]
@@ -39,14 +45,36 @@ export default function Home() {
         [background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjAzIi8+PC9zdmc+)]
         ${isDark ? 'shadow-black/20' : 'shadow-black/10'}
       `}>
-        <div className="relative inline-block bg-white p-2 shadow-md transform rotate-[-2deg]">
-          <Image
-            src="/mulholland-drive.png"
-            alt="Mulholland Drive"
-            width={300}
-            height={200}
-          />
-        </div>
+
+        {/* Polaroid card: Mulholland Drive */}
+        <Polaroid
+          src="/mulholland-drive.png"
+          alt="Mulholland Drive"
+          width={400}
+          gridColumn={1}
+          rotateDirection="left"
+        />
+
+        {/* Polaroid card: Between Scenes Website */}
+        <Polaroid
+          src="/between-scenes-website.png"
+          alt="Between Scenes Website"
+          width={560}
+          gridColumn={2}
+          rotateDirection="left"
+        />
+
+        {/* Polaroid card: Metrograph Issue 1 */}
+        <Polaroid
+          src="/metrograph-issue-1.jpg"
+          alt="Metrograph Issue 1"
+          width={200}
+          gridColumn={4}
+          rotateDirection="right"
+        />
+
+        {/* Add the sliding hand animation */}
+        <SlidingHand isDark={isDark} />
       </div>
     </div>
   );
