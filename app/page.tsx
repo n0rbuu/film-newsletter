@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
+import { Pin } from '@/components/pin';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -63,10 +64,11 @@ export default function Home() {
       `}>
 
         {/* Polaroid card: Mulholland Drive */}
-        <div 
+        <div
           className="cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 relative z-20"
           onClick={() => handleElementClick('mulholland-drive')}
         >
+          <Pin color="#e11d48" />
           <Polaroid
             src="/mulholland-drive.png"
             alt="Mulholland Drive"
@@ -81,6 +83,7 @@ export default function Home() {
           className="col-start-2 col-end-4 row-start-1 flex justify-center cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 relative z-20"
           onClick={() => handleElementClick('between-scenes-website')}
         >
+          <Pin color="#3b82f6" />
           <Polaroid
             src="/between-scenes-website.jpg"
             alt="Between Scenes Website"
@@ -95,6 +98,7 @@ export default function Home() {
           className="cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-1 relative z-20"
           onClick={() => handleElementClick('metrograph-issue-1')}
         >
+          <Pin color="#eab308" />
           <Polaroid
             src="/metrograph-issue-1.jpg"
             alt="Metrograph Issue 1"
@@ -112,6 +116,7 @@ export default function Home() {
           className="absolute bottom-0 right-0 transform -rotate-[15deg] translate-x-[20%] translate-y-[20%] z-20 cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-[12deg]"
           onClick={() => handleElementClick('cinenerdle')}
         >
+          <Pin color="#10b981" />
           <Image
             src="/cinenerdle2.png"
             alt="Cinenerdle iPhone App"
@@ -127,8 +132,8 @@ export default function Home() {
           <Popover>
             <PopoverTrigger asChild>
               <Button 
-                variant="outline"
-                className={`gap-2 ${isDark ? 'bg-stone-700 text-stone-50 hover:bg-stone-800 border-stone-600' : 'bg-stone-100 text-stone-900 hover:bg-stone-900 border-stone-200'}`}
+                variant="ghost"
+                className={`gap-2 ${isDark ? 'text-stone-100 hover:bg-stone-800 border-stone-600' : ' text-stone-900 hover:bg-stone-900 border-stone-200'}`}
               >
                 <HelpCircle className="h-4 w-4" />
                 What am I looking at?
@@ -138,7 +143,7 @@ export default function Home() {
               <div className="space-y-2">
                 <h3 className="font-medium">Between Scenes Newsletter</h3>
                 <p className="text-sm text-muted-foreground">
-                  This is a monthly newsletter by me, <a href="https://letterboxd.com/n0rbuu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">n0rbuu</a>. I wanted to try something different. Click on the items on the board to discover more!
+                  This is a monthly newsletter by <a href="https://letterboxd.com/n0rbuu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">n0rbuu</a>. I wanted to try something different. Click on the items on the board to discover more!
                 </p>
               </div>
             </PopoverContent>
