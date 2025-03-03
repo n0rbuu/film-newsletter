@@ -70,7 +70,7 @@ export default function Home() {
         >
           <Pin color="#e11d48" />
           <Polaroid
-            src="/mulholland-drive.png"
+            src="/mulholland-drive.jpg"
             alt="Mulholland Drive"
             width={400}
             gridColumn={1}
