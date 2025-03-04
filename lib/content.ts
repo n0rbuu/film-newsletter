@@ -14,7 +14,7 @@ export const contentData: Record<string, ElementContent> = {
       "David Lynch's passing affected me personally. When a director reaches a certain (auteur) level, they tend to live in the clouds. They are overly intellectual and inaccessible.",
       "But with each great film, as Lynch's artistry rose, he become more accessible. During the pandemic, his readouts of the weather brightened my day. In his short film <em>What Did Jack Do?</em>, he pokes fun at film noir (and himself).",
       "I watched <em>Mulholland Drive</em> a few days after his passing, in a packed IFC Center. Everyone clapped and shed a tear when the opening credits read <em>Directed by David Lynch</em>. Initially I was frustrated with the Maltese Falcon-esque plot. Around the time of the Silencio scene, I gave in to this spritual experience.",
-      "RIP my guy, the best to ever do it 💙."
+      "RIP my guy, the best to ever do it 💙"
 
     ],
     cta: {

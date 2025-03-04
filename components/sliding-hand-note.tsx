@@ -153,7 +153,7 @@ export function SlidingHandNote() {
           `}>
             <div className="absolute top-[-10px] left-[20px] w-[30px] h-[15px] bg-amber-300/80 rounded-sm shadow-sm transform rotate-[5deg] z-10"></div>
             <div className="absolute top-[-10px] right-[40px] w-[30px] h-[15px] bg-amber-300/80 rounded-sm shadow-sm transform rotate-[-3deg] z-10"></div>
-            <span className="text-4xl font-handwriting text-blue-900">
+            <span className="text-4xl font-handwriting text-blue-700">
               Here's what I was upto in February
             </span>
           </div>

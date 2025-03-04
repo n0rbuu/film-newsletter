@@ -31,10 +31,10 @@ export default function Home() {
   };
 
   // Default to dark theme during server-side rendering to avoid hydration mismatch
-  const bgColor = isClient ? (isDark ? 'bg-stone-950' : 'bg-stone-50') : 'bg-stone-950';
+  const bgColor = isClient ? (isDark ? 'bg-stone-950' : 'bg-orange-50') : 'bg-stone-950';
   const textColor = isClient ? (isDark ? 'text-stone-200' : 'text-stone-800') : 'text-stone-200';
   const subtextColor = isClient ? (isDark ? 'text-stone-400' : 'text-stone-600') : 'text-stone-400';
-  const canvasBg = isClient ? (isDark ? 'bg-stone-800/90' : 'bg-stone-50/90') : 'bg-stone-800/90';
+  const canvasBg = isClient ? (isDark ? 'bg-orange-900/90' : 'bg-orange-300/90') : 'bg-orange-900/90';
   const shadowColor = isClient ? (isDark ? 'shadow-black/20' : 'shadow-black/10') : 'shadow-black/20';
 
   return (
