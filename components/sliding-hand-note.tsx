@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
-export function SlidingHand() {
+export function SlidingHandNote() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const [animationState, setAnimationState] = useState<'hidden' | 'pushing' | 'hand-exits' | 'complete'>('hidden');
@@ -90,7 +89,7 @@ export function SlidingHand() {
       {/* Text that gets pushed */}
       <div 
         ref={textRef}
-        className={`absolute top-1/2 text-4xl font-semibold font-serif whitespace-nowrap ${isDark ? 'text-stone-200' : 'text-stone-800'}`}
+        className="absolute top-1/2"
         style={{ 
           left: getTextPosition(),
           transform: animationState !== 'hidden' 
@@ -100,7 +99,38 @@ export function SlidingHand() {
           zIndex: 10
         }}
       >
-        Here's what I was upto in February
+        {/* Handwritten Note Design */}
+        <div className={`
+          relative
+          px-8 py-6
+          ${isDark ? 'bg-blue-50' : 'bg-blue-50'}
+          whitespace-nowrap
+          shadow-md
+          rotate-[-1deg]
+          
+          before:content-['']
+          before:absolute
+          before:inset-0
+          before:bg-[linear-gradient(to_bottom,rgba(0,0,0,0)_0%,rgba(0,0,0,0)_9%,rgba(0,0,255,0.1)_10%,rgba(0,0,0,0)_11%,rgba(0,0,0,0)_19%,rgba(0,0,255,0.1)_20%,rgba(0,0,0,0)_21%,rgba(0,0,0,0)_29%,rgba(0,0,255,0.1)_30%,rgba(0,0,0,0)_31%,rgba(0,0,0,0)_39%,rgba(0,0,255,0.1)_40%,rgba(0,0,0,0)_41%,rgba(0,0,0,0)_49%,rgba(0,0,255,0.1)_50%,rgba(0,0,0,0)_51%,rgba(0,0,0,0)_59%,rgba(0,0,255,0.1)_60%,rgba(0,0,0,0)_61%,rgba(0,0,0,0)_69%,rgba(0,0,255,0.1)_70%,rgba(0,0,0,0)_71%,rgba(0,0,0,0)_79%,rgba(0,0,255,0.1)_80%,rgba(0,0,0,0)_81%,rgba(0,0,0,0)_89%,rgba(0,0,255,0.1)_90%,rgba(0,0,0,0)_91%,rgba(0,0,0,0)_100%)]
+          before:z-[-1]
+          
+          after:content-['']
+          after:absolute
+          after:top-[-5px]
+          after:left-0
+          after:right-0
+          after:h-[5px]
+          after:bg-[repeating-linear-gradient(90deg,transparent,transparent_5px,#f8fafc_5px,#f8fafc_10px)]
+          after:opacity-70
+          
+          border-b border-l border-r border-blue-200
+        `}>
+          <div className="absolute top-[-10px] left-[20px] w-[30px] h-[15px] bg-amber-300/80 rounded-sm shadow-sm transform rotate-[5deg] z-10"></div>
+          <div className="absolute top-[-10px] right-[40px] w-[30px] h-[15px] bg-amber-300/80 rounded-sm shadow-sm transform rotate-[-3deg] z-10"></div>
+          <span className="text-4xl font-handwriting text-blue-900">
+            Here's what I was upto in February
+          </span>
+        </div>
       </div>
       
       {/* The hand */}

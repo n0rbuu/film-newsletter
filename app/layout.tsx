@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Caveat } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
+const caveat = Caveat({ 
+  subsets: ["latin"],
+  variable: '--font-caveat',
+  display: 'swap',
+});
 
 //Website metadata
 export const metadata: Metadata = {
@@ -34,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={caveat.variable}>
       <body className={inter.className}>
         <ThemeProvider>
           <TooltipProvider>

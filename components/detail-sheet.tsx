@@ -41,7 +41,7 @@ export function DetailSheet({ isOpen, onOpenChange, content }: DetailSheetProps)
   
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
-      <SheetContent side={isMobile ? "bottom" : "right"} className={`${isMobile ? 'h-[70vh]' : 'max-w-md'} overflow-y-auto pt-24`}>
+      <SheetContent side={isMobile ? "bottom" : "right"} className={`${isMobile ? 'h-[80vh]' : 'max-w-md'} overflow-y-auto pt-24`}>
         <SheetHeader className="mb-8">
           <SheetTitle className="text-2xl font-serif mb-6">{content.title}</SheetTitle>
           <SheetDescription className="text-base space-y-4">

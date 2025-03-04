@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import Image from 'next/image';
 import { Polaroid } from '@/components/polaroid';
-import { SlidingHand } from '@/components/sliding-hand';
+import { SlidingHandNote } from '@/components/sliding-hand-note';
 import { DetailSheet } from '@/components/detail-sheet';
 import { ElementContent, contentData } from '@/lib/content';
 import {
@@ -45,7 +45,7 @@ export default function Home() {
       <div className={`
         w-full 
         h-[calc(100vh-12rem)] 
-        ${isDark ? 'bg-stone-800/90' : 'bg-stone-50/90'} 
+        ${isDark ? 'bg-stone-800/90' : 'bg-amber-50/90'} 
         rounded-lg 
         shadow-md 
         p-8
@@ -110,8 +110,8 @@ export default function Home() {
           />
         </div>
 
-        {/* Add the sliding hand animation */}
-        <SlidingHand />
+        {/* Add the sliding hand animation with handwritten note */}
+        <SlidingHandNote />
 
         {/* iPhone mockup - Cinenerdle */}
         <div 
@@ -135,7 +135,6 @@ export default function Home() {
             <PopoverTrigger asChild>
               <Button 
                 variant="secondary"
-                className={isDark ? 'bg-amber-100 text-amber-950 hover:bg-amber-200 border-amber-200' : 'bg-amber-950 text-amber-100 hover:bg-amber-900 border-amber-800'}
               >
                 <HelpCircle className="h-4 w-4" />
                 What am I looking at?
