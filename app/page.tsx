@@ -15,9 +15,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import { Pin } from '@/components/pin';
+import { useTheme } from 'next-themes';
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(true);
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [selectedContent, setSelectedContent] = useState<ElementContent | null>(null);
 
@@ -36,7 +38,7 @@ export default function Home() {
           <p className={`mt-1 font-serif ${isDark ? 'text-stone-400' : 'text-stone-600'}`}>Issue #1</p>
         </div>
         
-        <ThemeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
+        <ThemeToggle />
       </div>
 
       {/* Main Canvas - Bulletin Board */}
@@ -109,7 +111,7 @@ export default function Home() {
         </div>
 
         {/* Add the sliding hand animation */}
-        <SlidingHand isDark={isDark} />
+        <SlidingHand />
 
         {/* iPhone mockup - Cinenerdle */}
         <div 
@@ -132,8 +134,8 @@ export default function Home() {
           <Popover>
             <PopoverTrigger asChild>
               <Button 
-                variant="ghost"
-                className={`gap-2 ${isDark ? 'text-stone-100 hover:bg-stone-800 border-stone-600' : ' text-stone-900 hover:bg-stone-900 border-stone-200'}`}
+                variant="secondary"
+                className={isDark ? 'bg-amber-100 text-amber-950 hover:bg-amber-200 border-amber-200' : 'bg-amber-950 text-amber-100 hover:bg-amber-900 border-amber-800'}
               >
                 <HelpCircle className="h-4 w-4" />
                 What am I looking at?

@@ -2,12 +2,11 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
-interface SlidingHandProps {
-  isDark: boolean;
-}
-
-export function SlidingHand({ isDark }: SlidingHandProps) {
+export function SlidingHand() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const [animationState, setAnimationState] = useState<'hidden' | 'pushing' | 'hand-exits' | 'complete'>('hidden');
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
