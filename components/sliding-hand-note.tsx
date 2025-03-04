@@ -90,7 +90,7 @@ export function SlidingHandNote() {
   if (!isClient) return null;
   
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none z-50">
       {/* Text that gets pushed */}
       <div 
         ref={textRef}
@@ -101,7 +101,7 @@ export function SlidingHandNote() {
             ? 'translate(-50%, -50%)' 
             : 'translate(0, -50%)',
           transition: 'all 500ms cubic-bezier(0.34, 0.2, 0.64, 1)', // Faster than hand, accelerates toward end
-          zIndex: 10
+          zIndex: 50
         }}
       >
         {/* Handwritten Note Design */}
@@ -145,7 +145,7 @@ export function SlidingHandNote() {
         style={{ 
           left: getHandPosition(),
           transition: 'all 500ms cubic-bezier(0.25, 0.1, 0.5, 1)', // Slower, accelerates toward end
-          zIndex: 10
+          zIndex: 50
         }}
       >
         <img
