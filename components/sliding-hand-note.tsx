@@ -12,8 +12,20 @@ export function SlidingHandNote() {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const handRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
+    // Check if we're on mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
     // Start animation after 4 seconds
     const timer1 = setTimeout(() => {
       setAnimationState('pushing');
@@ -33,6 +45,7 @@ export function SlidingHandNote() {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
   
@@ -46,7 +59,10 @@ export function SlidingHandNote() {
     
     switch(animationState) {
       case 'hidden': 
-        return `-${handWidth + 50}px`; // Off-screen left
+        // Adjust for mobile scaling
+        return isMobile 
+          ? `-${handWidth * 2 + 100}px` 
+          : `-${handWidth + 50}px`; // Off-screen left
       
       case 'pushing': {
         if (!textRef.current) return '0px';
@@ -57,7 +73,10 @@ export function SlidingHandNote() {
       
       case 'hand-exits': 
       case 'complete': 
-        return `-${handWidth + 50}px`; // Off-screen left
+        // Adjust for mobile scaling
+        return isMobile 
+          ? `-${handWidth * 2 + 100}px` 
+          : `-${handWidth + 50}px`; // Off-screen left
         
       default: 
         return `-${handWidth + 50}px`;

@@ -53,7 +53,7 @@ export default function Home() {
       {/* Main Canvas - Bulletin Board */}
       <div className={`
         w-full 
-        h-[600px]
+        h-[540px]
         sm:h-[600px]
         md:h-[calc(100vh-10rem)]
         ${canvasBg}

@@ -44,22 +44,26 @@ export function DetailSheet({ isOpen, onOpenChange, content }: DetailSheetProps)
       <SheetContent side={isMobile ? "bottom" : "right"} className={`${isMobile ? 'h-[80vh]' : 'max-w-md'} overflow-y-auto pt-24`}>
         <SheetHeader className="mb-8">
           <SheetTitle className="text-2xl font-serif mb-6">{content.title}</SheetTitle>
-          <SheetDescription className="text-base space-y-4">
+          <SheetDescription className={`text-base space-y-4 ${isMobile ? 'text-left' : ''}`}>
             {Array.isArray(content.description) ? (
               content.description.map((paragraph, index) => (
                 <p 
                   key={index} 
                   dangerouslySetInnerHTML={{ __html: paragraph }}
+                  className={isMobile ? 'text-left' : ''}
                 />
               ))
             ) : (
-              <p dangerouslySetInnerHTML={{ __html: content.description }} />
+              <p 
+                dangerouslySetInnerHTML={{ __html: content.description }} 
+                className={isMobile ? 'text-left' : ''}
+              />
             )}
           </SheetDescription>
         </SheetHeader>
         
         {content.cta && (
-          <div className="mt-8">
+          <div className="mt-8 flex justify-center">
             <Button 
               asChild 
               className="justify-start"
