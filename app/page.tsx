@@ -54,6 +54,8 @@ export default function Home() {
       <div className={`
         w-full 
         h-[calc(100vh-8rem)] 
+        sm:h-[calc(100vh-8rem)] 
+        md:h-[calc(100vh-8rem)]
         ${canvasBg}
         rounded-lg 
         shadow-md 
@@ -68,6 +70,7 @@ export default function Home() {
         after:bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.08)_0px,rgba(0,0,0,0.08)_2px,transparent_2px,transparent_4px)]
         [background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjAzIi8+PC9zdmc+)]
         ${shadowColor}
+        max-h-[500px]
       `}>
         {/* Responsive Bulletin Board Content */}
         <div className="w-full h-full relative">
