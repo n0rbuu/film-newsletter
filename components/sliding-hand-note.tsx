@@ -2,9 +2,11 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { useTheme } from 'next-themes';
+import { useIsClient } from '@/hooks/use-is-client';
 
 export function SlidingHandNote() {
   const { theme } = useTheme();
+  const isClient = useIsClient();
   const isDark = theme === 'dark';
   const [animationState, setAnimationState] = useState<'hidden' | 'pushing' | 'hand-exits' | 'complete'>('hidden');
   const containerRef = useRef<HTMLDivElement>(null);
@@ -83,6 +85,9 @@ export function SlidingHandNote() {
         return `-${textWidth + 50}px`;
     }
   };
+  
+  // Don't render anything during server-side rendering
+  if (!isClient) return null;
   
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none">

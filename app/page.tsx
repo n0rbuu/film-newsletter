@@ -16,9 +16,11 @@ import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import { Pin } from '@/components/pin';
 import { useTheme } from 'next-themes';
+import { useIsClient } from '@/hooks/use-is-client';
 
 export default function Home() {
   const { theme } = useTheme();
+  const isClient = useIsClient();
   const isDark = theme === 'dark';
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [selectedContent, setSelectedContent] = useState<ElementContent | null>(null);
@@ -28,14 +30,21 @@ export default function Home() {
     setIsSheetOpen(true);
   };
 
+  // Default to dark theme during server-side rendering to avoid hydration mismatch
+  const bgColor = isClient ? (isDark ? 'bg-stone-950' : 'bg-stone-50') : 'bg-stone-950';
+  const textColor = isClient ? (isDark ? 'text-stone-200' : 'text-stone-800') : 'text-stone-200';
+  const subtextColor = isClient ? (isDark ? 'text-stone-400' : 'text-stone-600') : 'text-stone-400';
+  const canvasBg = isClient ? (isDark ? 'bg-stone-800/90' : 'bg-stone-50/90') : 'bg-stone-800/90';
+  const shadowColor = isClient ? (isDark ? 'shadow-black/20' : 'shadow-black/10') : 'shadow-black/20';
+
   return (
     // Page container
-    <div className={`min-h-screen p-4 sm:p-12 ${isDark ? 'bg-stone-950' : 'bg-stone-50'}`}>
+    <div className={`min-h-screen p-4 sm:p-12 ${bgColor}`}>
       {/* Header with Theme Toggle */}
       <div className="mb-8 flex justify-between items-center">
         <div>
-          <h1 className={`text-2xl font-semibold font-sans ${isDark ? 'text-stone-200' : 'text-stone-800'}`}>Between Scenes</h1>
-          <p className={`mt-1 font-serif ${isDark ? 'text-stone-400' : 'text-stone-600'}`}>Issue #1</p>
+          <h1 className={`text-2xl font-semibold font-sans ${textColor}`}>Between Scenes</h1>
+          <p className={`mt-1 font-serif ${subtextColor}`}>Issue #1</p>
         </div>
         
         <ThemeToggle />
@@ -45,7 +54,7 @@ export default function Home() {
       <div className={`
         w-full 
         h-[calc(100vh-12rem)] 
-        ${isDark ? 'bg-stone-800/90' : 'bg-amber-50/90'} 
+        ${canvasBg}
         rounded-lg 
         shadow-md 
         p-8
@@ -62,7 +71,7 @@ export default function Home() {
         after:inset-0
         after:bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.08)_0px,rgba(0,0,0,0.08)_2px,transparent_2px,transparent_4px)]
         [background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjAzIi8+PC9zdmc+)]
-        ${isDark ? 'shadow-black/20' : 'shadow-black/10'}
+        ${shadowColor}
       `}>
 
         {/* Polaroid card: Mulholland Drive */}
