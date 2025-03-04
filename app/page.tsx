@@ -115,9 +115,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Add the sliding hand animation with handwritten note */}
-          <SlidingHandNote />
-
           {/* iPhone mockup - Cinenerdle - Bottom Right */}
           <div 
             className="absolute bottom-[-8%] right-[-3%] w-[25%] max-w-[280px] min-w-[80px] transform -rotate-[15deg] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-[12deg] z-20"
@@ -159,6 +156,11 @@ export default function Home() {
               </PopoverContent>
             </Popover>
           </div>
+        </div>
+        
+        {/* Special container for SlidingHandNote with overflow-visible */}
+        <div className="absolute inset-0 overflow-x-visible overflow-y-hidden">
+          <SlidingHandNote />
         </div>
       </div>
 
