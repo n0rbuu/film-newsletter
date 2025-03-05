@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { useIsClient } from "@/hooks/use-is-client";
 
 interface DetailSheetProps {
   isOpen: boolean;
@@ -17,6 +19,9 @@ interface DetailSheetProps {
 
 export function DetailSheet({ isOpen, onOpenChange, content }: DetailSheetProps) {
   const [isMobile, setIsMobile] = useState(false);
+  const { theme } = useTheme();
+  const isClient = useIsClient();
+  const isDark = theme === 'dark';
   
   useEffect(() => {
     const checkMobile = () => {
@@ -39,9 +44,15 @@ export function DetailSheet({ isOpen, onOpenChange, content }: DetailSheetProps)
     return null;
   }
   
+  // Default to dark theme during server-side rendering to avoid hydration mismatch
+  const bgColor = isClient ? (isDark ? 'bg-stone-900' : 'bg-amber-100') : 'bg-stone-900';
+  
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
-      <SheetContent side={isMobile ? "bottom" : "right"} className={`${isMobile ? 'h-[80vh]' : 'max-w-md'} overflow-y-auto pt-24`}>
+      <SheetContent 
+        side={isMobile ? "bottom" : "right"} 
+        className={`${isMobile ? 'h-[80vh]' : 'max-w-md'} overflow-y-auto pt-24 ${bgColor}`}
+      >
         <SheetHeader className="mb-8">
           <SheetTitle className="text-2xl font-serif mb-6">{content.title}</SheetTitle>
           <SheetDescription className={`text-base space-y-4 ${isMobile ? 'text-left' : ''}`}>
@@ -63,7 +74,7 @@ export function DetailSheet({ isOpen, onOpenChange, content }: DetailSheetProps)
         </SheetHeader>
         
         {content.cta && (
-          <div className="mt-8 flex justify-center">
+          <div className="mt-10 flex justify-center">
             <Button 
               asChild 
               className="justify-start"

@@ -31,7 +31,7 @@ export default function Home() {
   };
 
   // Default to dark theme during server-side rendering to avoid hydration mismatch
-  const bgColor = isClient ? (isDark ? 'bg-stone-950' : 'bg-orange-50') : 'bg-stone-950';
+  const bgColor = isClient ? (isDark ? 'bg-stone-950' : 'bg-amber-50') : 'bg-stone-950';
   const textColor = isClient ? (isDark ? 'text-stone-200' : 'text-stone-800') : 'text-stone-200';
   const subtextColor = isClient ? (isDark ? 'text-stone-400' : 'text-stone-600') : 'text-stone-400';
   const canvasBg = isClient ? (isDark ? 'bg-orange-900/90' : 'bg-orange-300/90') : 'bg-orange-900/90';
@@ -139,18 +139,24 @@ export default function Home() {
               <PopoverTrigger asChild>
                 <Button 
                   variant="secondary"
-                  size="sm"
+                  size="default"
                 >
                   <HelpCircle className="h-4 w-4 mr-1" />
                   <span className="hidden sm:inline">What am I looking at?</span>
                   <span className="sm:hidden">What is this?</span>
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-[280px] sm:w-80 p-4">
+              <PopoverContent 
+                className="w-[280px] sm:w-80 p-4" 
+                align="start" 
+                alignOffset={0} 
+                side="top"
+                sideOffset={10}
+              >
                 <div className="space-y-2">
                   <h3 className="font-medium">Between Scenes Newsletter</h3>
                   <p className="text-sm text-muted-foreground">
-                    This is a monthly newsletter by <a href="https://letterboxd.com/n0rbuu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">n0rbuu</a>. I wanted to try something different. Click on the items on the board to discover more!
+                    This is a monthly newsletter by <a href="https://letterboxd.com/n0rbuu/" target="_blank" rel="noopener noreferrer" className="text-orange-700 hover:underline">n0rbuu</a>. I wanted to try something different. Click on the items on the board to discover more!
                   </p>
                 </div>
               </PopoverContent>
