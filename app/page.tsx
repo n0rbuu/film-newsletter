@@ -42,7 +42,7 @@ export default function Home() {
     // Page container
     <div className={`min-h-screen p-4 sm:p-8 ${bgColor}`}>
       {/* Header with Theme Toggle */}
-      <div className="mb-6 sm:mb-8 flex justify-between items-center">
+      <div className="flex justify-between items-start mb-8">
         <div>
           <h1 className={`text-xl sm:text-2xl font-semibold font-sans ${textColor}`}>Between Scenes</h1>
           <p className={`mt-1 font-serif ${subtextColor}`}>Issue #1</p>
