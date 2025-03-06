@@ -76,7 +76,7 @@ export default function Home() {
         <div className="w-full h-full relative">
           {/* Polaroid card: Mulholland Drive - Top Left */}
           <div
-            className="absolute top-[5%] left-[5%] w-[30%] max-w-[360px] min-w-[120px] cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 z-20"
+            className="absolute top-[5%] left-[3%] w-[30%] max-w-[360px] min-w-[120px] cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 z-20"
             onClick={() => handleElementClick('mulholland-drive')}
           >
             <Pin color="#e11d48" />
@@ -90,7 +90,7 @@ export default function Home() {
 
           {/* Polaroid card: Between Scenes Website - Top Center */}
           <div 
-            className="absolute top-[6%] left-[50%] transform -translate-x-1/2 w-[40%] max-w-[400px] min-w-[150px] cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 z-20"
+            className="absolute top-[0%] left-[50%] transform -translate-x-1/2 w-[40%] max-w-[400px] min-w-[150px] cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 z-20"
             onClick={() => handleElementClick('between-scenes-website')}
           >
             <Pin color="#3b82f6" />
@@ -118,7 +118,7 @@ export default function Home() {
 
           {/* iPhone mockup - Cinenerdle - Bottom Right */}
           <div 
-            className="absolute bottom-[-8%] right-[-3%] w-[25%] max-w-[280px] min-w-[80px] transform -rotate-[15deg] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-[12deg] z-20"
+            className="absolute bottom-[-16%] right-[-3%] w-[25%] max-w-[280px] min-w-[80px] transform -rotate-[15deg] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-[12deg] z-20"
             onClick={() => handleElementClick('cinenerdle')}
           >
             <Pin color="#10b981" />
@@ -145,7 +145,7 @@ export default function Home() {
 
           {/* Polaroid card: Playtime - Bottom Center */}
           <div 
-            className="absolute bottom-[10%] left-[50%] transform -translate-x-1/2 w-[30%] max-w-[320px] min-w-[120px] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-1 z-20"
+            className="absolute bottom-[0%] left-[55%] transform -translate-x-1/2 w-[30%] max-w-[220px] min-w-[120px] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-1 z-20"
             onClick={() => handleElementClick('playtime')}
           >
             <Pin color="#f97316" />

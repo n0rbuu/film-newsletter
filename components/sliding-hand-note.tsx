@@ -115,8 +115,9 @@ export function SlidingHandNote() {
         {/* Text that gets pushed */}
         <div 
           ref={textRef}
-          className="absolute top-1/2"
+          className="absolute sm:top-1/2"
           style={{ 
+            top: isMobile ? 'calc(50% - 40px)' : 'calc(50% - 40px)',
             left: getTextPosition(),
             transform: animationState !== 'hidden' 
               ? 'translate(-50%, -50%)' 
@@ -162,8 +163,9 @@ export function SlidingHandNote() {
         {/* The hand */}
         <div 
           ref={handRef}
-          className="absolute top-1/2 transform -translate-y-1/2"
+          className="absolute sm:top-1/2 transform -translate-y-1/2"
           style={{ 
+            top: isMobile ? 'calc(50% - 50px)' : 'calc(50% - 60px)',
             left: getHandPosition(),
             transition: 'all 500ms cubic-bezier(0.25, 0.1, 0.5, 1)', // Slower, accelerates toward end
             zIndex: 50

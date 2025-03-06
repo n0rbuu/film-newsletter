@@ -17,7 +17,7 @@ export function Polaroid({ src, alt, width, rotateDirection = 'left' }: Polaroid
         transform: `rotate(${rotation})`
       }}
     >
-      <div className="bg-stone-50 p-2 w-full shadow-md before:content-none after:content-none">
+      <div className="bg-stone-50 p-1 sm:p-2 w-full shadow-md before:content-none after:content-none">
         <Image
           src={src}
           alt={alt}

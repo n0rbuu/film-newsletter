@@ -9,10 +9,10 @@ interface PortraitStackProps {
 export function PortraitStack({ onClick }: PortraitStackProps) {
   const portraits = [
     
-    { src: "/reichardt.jpg.webp", alt: "Kelly Reichardt" },
+    { src: "/reichardt.jpg", alt: "Kelly Reichardt" },
     { src: "/jarmusch.jpg.webp", alt: "Jim Jarmusch" },
-    { src: "/zhao.jpg.webp", alt: "Chloé Zhao" },
-    { src: "/spike.jpg.webp", alt: "Spike Lee" }
+    { src: "/spike.jpg", alt: "Spike Lee" },
+    { src: "/zhao.jpg", alt: "Chloé Zhao" }
   ];
   
   return (
@@ -28,9 +28,9 @@ export function PortraitStack({ onClick }: PortraitStackProps) {
           style={{
             width: '100%',
             height: '100%',
-            transform: `rotate(${(index - 1.5) * 16}deg) translate(${index * 24}px, ${-index * 20}px)`,
+            transform: `rotate(${(index - 1.5) * 3}deg) translate(${index * 2}px, ${index * 5}px)`,
             zIndex: index,
-            transformOrigin: 'bottom center',
+            transformOrigin: 'top center',
           }}
         >
           <div className="w-full h-full overflow-hidden">
