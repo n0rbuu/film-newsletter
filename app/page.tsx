@@ -17,6 +17,7 @@ import { HelpCircle } from "lucide-react";
 import { Pin } from '@/components/pin';
 import { useTheme } from 'next-themes';
 import { useIsClient } from '@/hooks/use-is-client';
+import { PortraitStack } from '@/components/portrait-stack';
 
 export default function Home() {
   const { theme } = useTheme();
@@ -131,6 +132,29 @@ export default function Home() {
                 priority
               />
             </div>
+          </div>
+
+          {/* Directors Portrait Stack - Bottom Left */}
+          <div 
+            className="absolute bottom-[15%] left-[10%] transform rotate-[5deg] transition-all duration-300 hover:scale-105 hover:rotate-[8deg] z-20"
+            onClick={() => handleElementClick('directors-stack')}
+          >
+            <Pin color="#9333ea" />
+            <PortraitStack />
+          </div>
+
+          {/* Polaroid card: Playtime - Bottom Center */}
+          <div 
+            className="absolute bottom-[10%] left-[50%] transform -translate-x-1/2 w-[30%] max-w-[320px] min-w-[120px] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-1 z-20"
+            onClick={() => handleElementClick('playtime')}
+          >
+            <Pin color="#f97316" />
+            <Polaroid
+              src="/playtime.jpg"
+              alt="Playtime"
+              width={400}
+              rotateDirection="right"
+            />
           </div>
 
           {/* What is this button */}

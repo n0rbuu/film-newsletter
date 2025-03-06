@@ -18,8 +18,8 @@ export const contentData: Record<string, ElementContent> = {
 
     ],
     cta: {
-      title: "Watch on Criterion",
-      url: "https://www.criterionchannel.com/mulholland-dr"
+      title: "View on Letterboxd",
+      url: "https://letterboxd.com/film/mulholland-drive/"
     }
   },
   "between-scenes-website": {
@@ -38,7 +38,7 @@ export const contentData: Record<string, ElementContent> = {
     title: "Metrograph Issue 1",
     description: [
       "Since I moved to New York in 2021, I've frequented the Metrograph theater every other week. I love their programming, their graphic design, and their culture.",
-      "Issue 1 is their first print publication and it is <strong> beautiful </strong>. It features interviews (notably with Client Eastwood, Mark Lee Ping Bing, and Ed Lachman. It also has a list of film locations around the lower East Side that I'm obsessed with.",
+      "Issue 1 is their first print publication and it is <strong> beautiful </strong>. It features interviews (notably with Clint Eastwood, Mark Lee Ping Bing, and Ed Lachman. It also has a list of film locations around the lower East Side that I'm obsessed with.",
       "The magazine itself is so well designed. If you're a fan of film, design or culture, it's worth a read!"
     ],
     cta: {
@@ -56,6 +56,40 @@ export const contentData: Record<string, ElementContent> = {
     cta: {
       title: "Try it out",
       url: "http://cinenerdle2.app/"
+    }
+  },
+  "directors-stack": {
+    title: "Excited for 2025!",
+    description: [
+      "In 2025, so many directors I like will make new films. Here are the ones I'm looking forward to:",
+      "<strong>Kelly Reichardt</strong>: Many of you know I am a certified fanboy. She is making an ART HEIST FILM. Starring John Magaro, Josh O'Connor, and Alana Haim??? Pl accept my venmo.",
+      "<strong>Spike Lee</strong>: Imagine if a director you like does a remake of another director you like? Spike Lee is doing his spin in Kurosawa's <em> High and Low</em> and calling it <em>Highest 2 Lowest</em>, featuring Denzel!",
+      "<strong>Chloé Zhao</strong>: She is adapting Shakespeare with Paul Mescal and Jessie Buckley!!!",
+      "<strong>Richard Linklater</strong>:He is making <em>Nouvelle Vague</em> about the French New Wave.",
+      "<strong>Bong Joon-ho</strong>: <em>Mickey 18</em> with R-Patz!",
+      "<strong>Lynne Ramsay</strong>: <em>Die, My Love</em> with R-Patz!",
+      "<strong>Park Chan-wook</strong>: I don't even know what he is doing, but the potential of him directing Son ye-jin (of Crash Landing on You) is too good to pass up.",
+      "<strong>Kathryn Bigelow</strong>: A thriller? With Idris Elba and Rebecca Ferguson? Yes please.",
+      "<strong>Jim Jarmusch</strong>: He's back! With Cate Blanchett and Vicky Krieps and Adam Driver!",
+      "<strong>Some guy</strong>: Mission Impossible: The Last Reckoning. This will be the greatest finale of all time. (Should you choose to accept)"
+      
+
+    ],
+    cta: {
+      title: "More on the Film Stage",
+      url: "https://thefilmstage.com/the-100-most-anticipated-films-of-2025-part-two/"
+    }
+  },
+  "playtime": {
+    title: "The World of Jacques Tati",
+    description: [
+      "<em>Playtime</em> by Jacques Tati is my single favorite film of all time.",
+      "While he is not exactly an unknown, I do think he deserves more attention, especially when he is referenced so prominently by Wes Anderson.",
+      "I have started going through his entire filmography, and got some exciting books that describe all his work! New blog coming out soon!"
+    ],
+    cta: {
+      title: "See my Letterboxd Review",
+      url: "https://letterboxd.com/n0rbuu/film/playtime/1/"
     }
   }
 }; 
