@@ -91,5 +91,17 @@ export const contentData: Record<string, ElementContent> = {
       title: "See my Letterboxd Review",
       url: "https://letterboxd.com/n0rbuu/film/playtime/1/"
     }
+  },
+  "about-page": {
+    title: "I'm trying out something new!",
+    description: [
+      "Between Scenes is a film blog and newsletter by <a href='https://letterboxd.com/n0rbuu/'>n0rbuu</a>).",
+      "I wanted to try a bulletin board metaphor to share a monthly update, inspired at the Film Forum Theater in New York.",
+      "Hope you enjoy this! Check out my <a href='https://betweenscenes.blog'>website</a> for longer form content. And email me at <a href='mailto:newsletter@betweenscenes.blog'>newsletter@betweenscenes.blog</a> for any comments or questions."
+    ],
+    cta: {
+      title: "Visit Website",
+      url: "https://betweenscenes.blog"
+    }
   }
 }; 

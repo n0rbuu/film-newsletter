@@ -7,13 +7,7 @@ import { Polaroid } from '@/components/polaroid';
 import { SlidingHandNote } from '@/components/sliding-hand-note';
 import { DetailSheet } from '@/components/detail-sheet';
 import { ElementContent, contentData } from '@/lib/content';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import { HelpCircle } from "lucide-react";
 import { Pin } from '@/components/pin';
 import { useTheme } from 'next-themes';
 import { useIsClient } from '@/hooks/use-is-client';
@@ -139,8 +133,16 @@ export default function Home() {
             className="absolute bottom-[15%] left-[10%] transform rotate-[5deg] transition-all duration-300 hover:scale-105 hover:rotate-[8deg] z-20"
             onClick={() => handleElementClick('directors-stack')}
           >
-            <Pin color="#9333ea" />
-            <PortraitStack />
+            <div className="relative">
+              {/* Custom positioned pin for portrait stack only */}
+              <div className="absolute -pt-[10] left-[20%] z-30">
+                <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="#9333ea" />
+                  <circle cx="12" cy="12" r="6" fill="#ffffff" fillOpacity="0.3" />
+                </svg>
+              </div>
+              <PortraitStack />
+            </div>
           </div>
 
           {/* Polaroid card: Playtime - Bottom Center */}
@@ -159,32 +161,13 @@ export default function Home() {
 
           {/* What is this button */}
           <div className="absolute bottom-4 left-4 z-30">
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button 
-                  variant="secondary"
-                  size="default"
-                >
-                  <HelpCircle className="h-4 w-4 mr-1" />
-                  <span className="hidden sm:inline">What am I looking at?</span>
-                  <span className="sm:hidden">What is this?</span>
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent 
-                className="w-[280px] sm:w-80 p-4" 
-                align="start" 
-                alignOffset={0} 
-                side="top"
-                sideOffset={10}
-              >
-                <div className="space-y-2">
-                  <h3 className="font-medium">Between Scenes Newsletter</h3>
-                  <p className="text-sm text-muted-foreground">
-                    This is a monthly newsletter by <a href="https://letterboxd.com/n0rbuu/" target="_blank" rel="noopener noreferrer" className="text-orange-700 hover:underline">n0rbuu</a>. I wanted to try something different. Click on the items on the board to discover more!
-                  </p>
-                </div>
-              </PopoverContent>
-            </Popover>
+            <Button 
+              variant="secondary"
+              size="default"
+              onClick={() => handleElementClick('about-page')}
+            >
+              What am I looking at?
+            </Button>
           </div>
         </div>
         
