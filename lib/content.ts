@@ -30,8 +30,8 @@ export const contentData: Record<string, ElementContent> = {
       "My first long essay is out -- It is a list of 20 short films, each under 20 minutes. This is for my friends who complain about my recommendations being too long. Enjoy!"
     ],
     cta: {
-      title: "Visit Website",
-      url: "https://betweenscenes.blog"
+      title: "Read My First Post",
+      url: "https://betweenscenes.blog/essays/20-short-films"
     }
   },
   "metrograph-issue-1": {

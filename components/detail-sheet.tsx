@@ -47,6 +47,14 @@ export function DetailSheet({ isOpen, onOpenChange, content }: DetailSheetProps)
   // Default to dark theme during server-side rendering to avoid hydration mismatch
   const bgColor = isClient ? (isDark ? 'bg-stone-900' : 'bg-amber-100') : 'bg-stone-900';
   
+  // Add custom styles for links
+  const linkStyles = isDark ? 'text-orange-200 underline' : 'text-orange-600 underline';
+  
+  // Add this function to process HTML and add classes to links
+  const addLinkStyles = (html: string) => {
+    return html.replace(/<a\s/g, `<a class="${linkStyles}" `);
+  };
+  
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetContent 
@@ -60,13 +68,13 @@ export function DetailSheet({ isOpen, onOpenChange, content }: DetailSheetProps)
               content.description.map((paragraph, index) => (
                 <p 
                   key={index} 
-                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                  dangerouslySetInnerHTML={{ __html: addLinkStyles(paragraph) }}
                   className={`${isMobile ? 'text-left' : ''} ${isDark ? 'text-stone-300' : 'text-stone-700'}`}
                 />
               ))
             ) : (
               <p 
-                dangerouslySetInnerHTML={{ __html: content.description }} 
+                dangerouslySetInnerHTML={{ __html: addLinkStyles(content.description as string) }} 
                 className={`${isMobile ? 'text-left' : ''} ${isDark ? 'text-stone-300' : 'text-stone-700'}`}
               />
             )}

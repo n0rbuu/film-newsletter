@@ -33,7 +33,7 @@ export function PortraitStack({ onClick }: PortraitStackProps) {
             width: '100%',
             height: '100%',
             transform: isHovered
-              ? `rotate(${(index - 1.5) * 8}deg) translate(${index * 5}px, ${index * 5}px)`
+              ? `rotate(${(index - 1.5) * 10}deg) translate(${index * 6}px, ${index * 5}px)`
               : `rotate(${(index - 1.5) * 3}deg) translate(${index * 2}px, ${index * 5}px)`,
             zIndex: index,
             transformOrigin: '50% 15%',

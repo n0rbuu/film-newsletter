@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import Image from 'next/image';
 import { Polaroid } from '@/components/polaroid';
@@ -19,6 +19,7 @@ export default function Home() {
   const isDark = theme === 'dark';
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [selectedContent, setSelectedContent] = useState<ElementContent | null>(null);
+  const [elementsVisible, setElementsVisible] = useState(Array(6).fill(false));
 
   const handleElementClick = (contentKey: string) => {
     setSelectedContent(contentData[contentKey]);
@@ -31,6 +32,34 @@ export default function Home() {
   const subtextColor = isClient ? (isDark ? 'text-stone-400' : 'text-stone-600') : 'text-stone-600';
   const canvasBg = isClient ? (isDark ? 'bg-orange-900/90' : 'bg-orange-300/90') : 'bg-orange-300/90';
   const shadowColor = isClient ? (isDark ? 'shadow-black/20' : 'shadow-black/10') : 'shadow-black/10';
+  const buttonColor = isClient ? (isDark ? 'bg-orange-800' : 'bg-orange-100') : 'bg-orange-100';
+
+  // Use an effect to stagger the appearance of elements
+  useEffect(() => {
+    if (!isClient) return;
+    
+    // Define decreasing intervals: 600, 500, 400, 300, 300, 300
+    const intervals = [600, 500, 300, 300, 200, 100];
+    
+    // Calculate cumulative delays
+    const delays = intervals.reduce((acc, interval, i) => {
+      if (i === 0) return [0];
+      return [...acc, acc[i-1] + intervals[i-1]];
+    }, [0]);
+    
+    // Stagger the appearance of elements with decreasing intervals
+    const timers = elementsVisible.map((_, index) => {
+      return setTimeout(() => {
+        setElementsVisible(prev => {
+          const newState = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+      }, 2000 + delays[index]); // 2000ms initial delay, then decreasing intervals
+    });
+    
+    return () => timers.forEach(timer => clearTimeout(timer));
+  }, [isClient, elementsVisible.length]);
 
   return (
     // Page container
@@ -70,7 +99,7 @@ export default function Home() {
         <div className="w-full h-full relative">
           {/* Polaroid card: Mulholland Drive - Top Left */}
           <div
-            className="absolute top-[5%] left-[3%] w-[30%] max-w-[360px] min-w-[120px] cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 z-20"
+            className={`absolute top-[5%] left-[3%] w-[30%] max-w-[360px] min-w-[120px] cursor-pointer transition-all duration-1000 hover:scale-105 hover:rotate-1 z-20 ${elementsVisible[0] ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => handleElementClick('mulholland-drive')}
           >
             <Pin color="#e11d48" />
@@ -84,7 +113,7 @@ export default function Home() {
 
           {/* Polaroid card: Between Scenes Website - Top Center */}
           <div 
-            className="absolute top-[0%] left-[50%] transform -translate-x-1/2 w-[40%] max-w-[400px] min-w-[150px] cursor-pointer transition-all duration-300 hover:scale-105 hover:rotate-1 z-20"
+            className={`absolute top-[0%] left-[50%] transform -translate-x-1/2 w-[40%] max-w-[400px] min-w-[150px] cursor-pointer transition-all duration-700 hover:scale-105 hover:rotate-1 z-20 ${elementsVisible[1] ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => handleElementClick('between-scenes-website')}
           >
             <Pin color="#3b82f6" />
@@ -98,7 +127,7 @@ export default function Home() {
 
           {/* Polaroid card: Metrograph Issue 1 - Top Right */}
           <div 
-            className="absolute top-[5%] right-[5%] w-[25%] max-w-[280px] min-w-[100px] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-1 z-20"
+            className={`absolute top-[5%] right-[5%] w-[25%] max-w-[280px] min-w-[100px] cursor-pointer transition-all duration-500 hover:scale-105 hover:-rotate-1 z-20 ${elementsVisible[2] ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => handleElementClick('metrograph-issue-1')}
           >
             <Pin color="#eab308" />
@@ -112,7 +141,7 @@ export default function Home() {
 
           {/* iPhone mockup - Cinenerdle - Bottom Right */}
           <div 
-            className="absolute bottom-[-16%] right-[-3%] w-[25%] max-w-[280px] min-w-[80px] transform -rotate-[15deg] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-[12deg] z-20"
+            className={`absolute bottom-[-16%] right-[-3%] w-[25%] max-w-[280px] min-w-[80px] transform -rotate-[15deg] cursor-pointer transition-all duration-500 hover:scale-105 hover:-rotate-[12deg] z-20 ${elementsVisible[3] ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => handleElementClick('cinenerdle')}
           >
             <Pin color="#10b981" />
@@ -130,7 +159,7 @@ export default function Home() {
 
           {/* Directors Portrait Stack - Bottom Left */}
           <div 
-            className="absolute bottom-[15%] left-[10%] transform rotate-[5deg] transition-all duration-300 hover:scale-105 hover:rotate-[8deg] z-20"
+            className={`absolute bottom-[15%] left-[10%] transform rotate-[5deg] transition-all duration-500 hover:scale-105 hover:rotate-[8deg] z-20 ${elementsVisible[4] ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => handleElementClick('directors-stack')}
           >
             <div className="relative">
@@ -147,7 +176,7 @@ export default function Home() {
 
           {/* Polaroid card: Playtime - Bottom Center */}
           <div 
-            className="absolute bottom-[0%] left-[55%] transform -translate-x-1/2 w-[30%] max-w-[220px] min-w-[120px] cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-1 z-20"
+            className={`absolute bottom-[0%] left-[55%] transform -translate-x-1/2 w-[30%] max-w-[220px] min-w-[120px] cursor-pointer transition-all duration-500 hover:scale-105 hover:-rotate-1 z-20 ${elementsVisible[5] ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => handleElementClick('playtime')}
           >
             <Pin color="#f97316" />
@@ -159,11 +188,12 @@ export default function Home() {
             />
           </div>
 
-          {/* What is this button */}
+          {/* What is this button - Not animated */}
           <div className="absolute bottom-4 left-4 z-30">
             <Button 
               variant="secondary"
               size="default"
+              className={buttonColor}
               onClick={() => handleElementClick('about-page')}
             >
               What am I looking at?
@@ -171,7 +201,7 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Special container for SlidingHandNote with overflow-visible */}
+        {/* Special container for SlidingHandNote with overflow-visible - Not animated */}
         <div className="absolute inset-0 overflow-x-visible overflow-y-hidden">
           <SlidingHandNote />
         </div>
