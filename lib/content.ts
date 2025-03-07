@@ -63,7 +63,7 @@ export const contentData: Record<string, ElementContent> = {
     description: [
       "In 2025, so many directors I like will make new films. Here are the ones I'm looking forward to:",
       "<strong>Kelly Reichardt</strong>: Many of you know I am a certified fanboy. She is making an ART HEIST FILM. Starring John Magaro, Josh O'Connor, and Alana Haim??? Pl accept my venmo.",
-      "<strong>Spike Lee</strong>: Imagine if a director you like does a remake of another director you like? Spike Lee is doing his spin in Kurosawa's <em> High and Low</em> and calling it <em>Highest 2 Lowest</em>, featuring Denzel!",
+      "<strong>Spike Lee</strong>: Imagine if a director you like does a remake of another director you like? Spike Lee is doing his spin on Kurosawa's <em> High and Low</em> and calling it <em>Highest 2 Lowest</em>, featuring Denzel!",
       "<strong>Chloé Zhao</strong>: She is adapting Shakespeare with Paul Mescal and Jessie Buckley!!!",
       "<strong>Richard Linklater</strong>:He is making <em>Nouvelle Vague</em> about the French New Wave.",
       "<strong>Bong Joon-ho</strong>: <em>Mickey 18</em> with R-Patz!",
@@ -95,8 +95,8 @@ export const contentData: Record<string, ElementContent> = {
   "about-page": {
     title: "I'm trying out something new!",
     description: [
-      "Between Scenes is a film blog and newsletter by <a href='https://letterboxd.com/n0rbuu/'>n0rbuu</a>).",
-      "I wanted to try a bulletin board metaphor to share a monthly update, inspired at the Film Forum Theater in New York.",
+      "Between Scenes is a film blog and newsletter by <a href='https://letterboxd.com/n0rbuu/'>n0rbuu</a>.",
+      "I wanted to try a bulletin board metaphor to share a monthly update, inspired by the Film Forum Theater in New York.",
       "Hope you enjoy this! Check out my <a href='https://betweenscenes.blog'>website</a> for longer form content. And email me at <a href='mailto:newsletter@betweenscenes.blog'>newsletter@betweenscenes.blog</a> for any comments or questions."
     ],
     cta: {
